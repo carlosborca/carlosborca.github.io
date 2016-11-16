@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+	<!-- General information and directives of this page. -->
+	<head>
+		<title>Carlos H. Borca - Resources - LibEFP</title>
+		<link href="styles/main.css" rel="stylesheet" type="text/css"/>
+	</head>
+	<!-- Links menu in english. -->	
+	<ul class="nav">
+		<li><a href="index.html"/>Main</a></li>
+		<li><a href="about.html"/>About</a></li>
+		<li><a href="research.html"/>Research</a></li>
+		<li><a href="people.html"/>People</a></li>
+		<li><a href="publications.html"/>Publications</a></li>
+		<li><a href="events.html"/>Events</a></li>
+		<li><a href="outreach.html"/>Outreach</a></li>
+		<li><a href="resources.html"/><b>Resources</b></a></li>
+		<li><a href="libpfe.html"/>Espa&ntilde;ol</a></li>
+	</ul>
+	<!-- Title and stylish image background. -->
+	<div>
+		<img style="border: 0px solid; width: 100%; height: auto;"
+			title="Header"
+			src="design/header.png"
+			alt="" hspace="0" vspace="0"/>
+	</div>
+	
+	<!-- This is where the content of the page starts. -->
+	<div class="resources" align="justify">
+		<center><h1>Resources: <font color="gray">LibEFP</font></h1></center>
+	</div>
+	<!-- Resources menu in english. -->	
+	<ul class="resources">
+		<li><a href="libefp.html"/><b>LibEFP</b></a></li>
+		<!-- <li><a href="gromacs.html"/>GROMACS</a></li> -->
+		<li><a href="octopus.html"/>Octopus</a></li>
+		<!-- <li><a href="q-chem.html"/>Q-Chem</a></li> -->
+		<!-- <li><a href="gamess.html"/>GAMESS</a></li> -->
+		<!-- <li><a href="psi4.html"/>Psi4</a></li> -->
+		<!-- <li><a href="mopac.html"/>MOPAC2016</a></li> -->
+	</ul>
+	<div class="resources" align="justify">
+		<h2>Contents</h2>
+		<ol><li><a href="libefp.html#What"/>What is LibEFP?</a></li>
+			<li><a href="libefp.html#LibEFP">LibEFP Web Page</a></li>
+			<li><a href="libefp.html#How">How to compile LibEFP 1.3.0?</a>
+			<ol><li><a href="libefp.html#Ubuntu">On Ubuntu 14.04 LTS</a>
+				<ol><li><a href="libefp.html#Ubuntu-Preparing">Preparing the operative system</a></li>
+					<li><a href="libefp.html#Ubuntu-Installing">Installing required basic libraries</a></li>
+					<li><a href="libefp.html#Ubuntu-Cleaning">Cleaning unused libraries</a></li>
+					<li><a href="libefp.html#Ubuntu-Cloning">Cloning the GIT repository</a></li>
+					<li><a href="libefp.html#Ubuntu-Contents">Contents of the <em class="code">config.inc</em> file</a></li>
+					<li><a href="libefp.html#Ubuntu-Compilation">Compilation</a></li>
+					<li><a href="libefp.html#Ubuntu-Paths">Creating paths for LibEFP</a></li>
+				</ol>
+				</li>
+				<li><a href="libefp.html#RCAC">On Clusters of the Rosen Center for Advanced Computing (RCAC) at Purdue Univeristy</a>
+				<ol><li><a href="libefp.html#RCAC-Cloning">Cloning the GIT repository</a></li>
+					<li><a href="libefp.html#RCAC-Contents">Contents of the <em class="code">config.inc</em> file</a></li>
+					<li><a href="libefp.html#RCAC-Loading">Loading required modules (Developers subversion on RCAC's Carter)</a></li>
+					<li><a href="libefp.html#RCAC-Compilation">Compilation</a></li>
+				</ol>
+				</li>
+			</ol>
+			</li>
+			<li><a href="libefp.html#Run">How to run LibEFP?</a>
+			<ol><li><a href="libefp.html#Run-Input">LibEFP/EFPMD input template</a></li>
+				<li><a href="libefp.html#Run-PBS">LibEFP/EFPMD PBS file template to run in the RCAC clusters at Purdue Univeristy</a></li>
+			</ol>
+			</li>
+		</ol>
+		<h2><a name="What">What is LibEFP?</a></h2>
+		<p>
+			LibEFP is a full implementation of the Effective Fragment Potential (EFP) method (EFP can be viewed as an advanced first-principles-based force-field, see <a href="http://dx.doi.org/10.1002/jcc.23375"/>Kaliman et al., JCC, 2013</a>). LibEFP facilitates extension of unique electronic structure methodologies designed for accurate simulations in the gas phase to condensed phases via QM/EFP. LibEFP is designed to give developers of quantum chemistry software an easy way to add EFP support to their favorite package.
+		</p>
+		<h2><a name="LibEFP">LibEFP Web Page</a></h2>
+		<p>
+			To find more detailed information about LibEFP, go to: <a href="http://www.libefp.org/"/>libefp - The Effective Fragment Potential method implementation</a>
+		</p>
+		<h2><a name="How">How to compile LibEFP 1.3.0?</a></h2>
+		<h3><a name="Ubuntu">On Ubuntu 14.04 LTS</a></h3>
+		<p>
+			This is an effective method to compile LibEFP on <a href="http://www.ubuntu.com/desktop"/>Ubuntu Desktop 14.04 LTS</a>. It was tested on May 19th, 2016:
+		</p>
+		<h4><a name="Ubuntu-Preparing">Preparing the operative system</a></h4>
+		<p>
+			Make sure your system is up-to-date.
+		</p>
+		<div class="code">
+			sudo apt-get update<br>
+			sudo apt-get upgrade<br>
+			sudo apt-get dist-upgrade<br>
+		</div>
+		<h4><a name="Ubuntu-Installing">Installing required basic libraries</a></h4>
+		<p>
+			Install compilers.
+		</p>
+		<div class="code">
+			sudo apt-get install build-essential<br>
+			sudo apt-get install gfortran<br>
+		</div>
+		<p>
+			Install Math Libraries
+		</p>
+		<div class="code">
+			sudo apt-get install libatlas-dev<br>
+			sudo apt-get install libblas-dev<br>
+			sudo apt-get install liblapack-dev<br>
+		</div>
+		<h4><a name="Ubuntu-Cleaning">Cleaning unused libraries</a></h4>
+		<p>
+			Clean after yourself.
+		</p>
+		<div class="code">
+			sudo apt-get autoremove<br>
+			sudo apt-get autoclean<br>
+			sudo apt-get clean<br>
+		</div>
+		<h4><a name="Ubuntu-Cloning">Cloning the GIT repository</a></h4>
+		<p>
+			First, go to the directory where you want to download the source code, for example your home directory:
+		</p>
+		<div class="code">
+			cd ~/
+			</div>
+		<p>
+			In order to compile LibEFP 1.3.0, you need to get the files for installation. This can be done using GIT Hub.
+		</p>
+		<div class="code">
+			git clone <a href="https://github.com/libefp/libefp"/>git://github.com/libefp/libefp.git</a>
+		</div>
+		<p>
+			This will create a directory named <em class="code">libefp</em> in your present working directory. You may want to rename it to include the version and other details of the compilation you are about to execute:
+		</p>
+		<div class="code">
+			mv libefp libefp-1.3.0-beta-2016.05.19
+		</div>
+		</p>
+			To explore the contents of the code go to the directory you just renamed.
+		</p>
+		<div class="code">
+			cd ~/libefp-1.3.0-beta-2016.05.19/
+		</div>
+		<h4><a name="Ubuntu-Contents">Contents of the <em class="code">config.inc</em> file</a></h4>
+		<p>
+			You also need a configuration file. This <em class="code">config.inc</em> file contains all the instructions for the system to recognize the compilers, installation directory, and other options.
+		</p>
+		<p>
+			An example of such file is given below:
+		</p>
+		<div class="code">
+			# C compiler<br>
+			CC= mpicc<br>
+			<br>
+			# Fortran compiler<br>
+			FC= gfortran<br>
+			<br>
+			# install prefix<br>
+			PREFIX= /usr/local<br>
+			<br>
+			# fragment library path<br>
+			FRAGLIB= $(PREFIX)/share/libefp/fraglib<br>
+			<br>
+			# additional link libraries<br>
+			MYLIBS= -lblas -llapack -lgfortran<br>
+			<br>
+			# additional linker flags<br>
+			MYLDFLAGS=<br>
+			<br>
+			# additional C flags<br>
+			MYCFLAGS= -DWITH_MPI -std=c99 -O3 -g -fopenmp<br>
+			<br>
+			# additional Fortran flags<br>
+			MYFFLAGS= -g<br>
+			<br>
+			# ar command<br>
+			AR= ar rcu<br>
+			<br>
+			# ranlib command<br>
+			RANLIB= ranlib<br>
+			<br>
+			# rm command<br>
+			RM= rm -f<br>
+			<br>
+			# tags program<br>
+			CTAGS= ctags<br>
+			<br>
+			# tags file<br>
+			TAGS= tags<br>
+		</div>
+		<h4><a name="Ubuntu-Compilation">Compilation</a></h4>
+		<p>
+			Compilation should be now straightforward. First you will run the <em class="code">make</em> command. This will verify that all things are in order for compilation of the whole package (if you only need the library you can use <em class="code">make libefp</em>, instead.).
+		</p>
+		<div class="code">
+			make
+		</div>
+		<p>
+			If <em class="code">make</em> did not result in error, you may now check that the program is running properly. That is done by executing a series of preloaded calculations that run through a script called with the <em class="code">make check</em> commands. You should at least perform the first one:
+		</p>
+		<div class="code">
+			make check
+		</div>
+		<p>
+			To test OpenMP parallel code (Parallelization between cores):
+		</p>
+		<div class="code">
+			make check-omp
+		</div>
+		<p>
+			To test MPI parallel code (Parallelization between nodes):
+		</p>
+		<div class="code">
+			make check-mpi
+		</div>
+		<p>
+			Finally, to compile the whole program, run the <em class="code">make install</em> command.
+		</p>
+		<div class="code">
+			make install
+		</div>
+		<h4><a name="Ubuntu-Paths">Creating paths for LibEFP</a></h4>
+		<p>
+			If you did not installed in the default directory, you may need to create paths for LibEFP binaries on your <em class="code">.profile</em>.
+		</p>
+		<div class="code">
+			export PATH="/usr/local/bin:$PATH"
+		</div>
+		<h3><a name="RCAC">On Clusters of the Rosen Center for Advanced Computing at Purdue Univeristy</a></h3>
+		<h4><a name="RCAC-Cloning">Cloning the GIT repository</a></h4>
+		<p>
+			First, go to the LibEFP directory inside the Apps directory of the Slipchenko Group:
+		</p>
+		<div class="code">
+			cd /group/lslipche/apps/libefp/
+			</div>
+		<p>
+			In order to compile LibEFP 1.3.0, you need to get the files for installation. This can be done using GIT Hub.
+		</p>
+		<div class="code">
+			git clone <a href="https://github.com/libefp/libefp"/>git://github.com/libefp/libefp.git</a>
+		</div>
+		<p>
+			This will create a directory named <em class="code">libefp</em> in your present working directory. You may want to rename it to include the version and other details of the compilation you are about to execute:
+		</p>
+		<div class="code">
+			mv libefp libefp-1.3.0-beta-2016.05.19
+		</div>
+		</p>
+			To explore the contents of the code go to the directory you just renamed.
+		</p>
+		<div class="code">
+			cd /group/lslipche/apps/libefp/libefp-1.3.0-beta-2016.05.19/
+		</div>
+		<h4><a name="RCAC-Contents">Contents of the <em class="code">config.inc</em> file</a></h4>
+		<p>
+			You also need a configuration file. This <em class="code">config.inc</em> file contains all the instructions for the system to recognize the compilers, installation directory, and other options.
+		</p>
+		<p>
+			An example of such file is given below:
+		</p>
+		<div class="code">
+			# C compiler<br>
+			CC= mpicc<br>
+			<br>
+			# Fortran compiler<br>
+			FC= ifort<br>
+			<br>
+			# install prefix<br>
+			PREFIX= /group/lslipche/apps/libefp/libefp-1.3.0-beta-2016.05.19<br>
+			<br>
+			# fragment library path<br>
+			FRAGLIB= $(PREFIX)/fraglib2<br>
+			<br>
+			# additional link libraries<br>
+			MYLIBS= -lifcore<br>
+			<br>
+			# additional linker flags<br>
+			MYLDFLAGS=<br>
+			<br>
+			# additional C flags<br>
+			MYCFLAGS= -DWITH_MPI -std=c99 -O3 -g -mkl=sequential -openmp<br>
+			<br>
+			# additional Fortran flags<br>
+			MYFFLAGS= -g<br>
+			<br>
+			# ar command<br>
+			AR= ar rcu<br>
+			<br>
+			# ranlib command<br>
+			RANLIB= ranlib<br>
+			<br>
+			# rm command<br>
+			RM= rm -f<br>
+			<br>
+			# tags program<br>
+			CTAGS= ctags<br>
+			<br>
+			# tags file<br>
+			TAGS= tags<br>
+		</div>
+		<h4><a name="RCAC-Loading">Loading required modules (Developers subversion on RCAC's Carter)</a></h4>
+		</p>
+			If compiling on RCAC's Carter, you need to load the environmental variables for the Intel Compiler suite and OpenMPI. You can do that with the following commands:
+		</p>
+		<div class="code">
+			module load intel<br>
+			module load openmpi<br>
+		</div>
+		<h4><a name="RCAC-Compilation">Compilation</a></h4>
+		<p>
+			Compilation should be now straightforward. First you will run the <em class="code">make</em> command. This will verify that all things are in order for compilation of the whole package (if you only need the library you can use <em class="code">make libefp</em>, instead.).
+		</p>
+		<div class="code">
+			make
+		</div>
+		<p>
+			If <em class="code">make</em> did not result in error, you may now check that the program is running properly. That is done by executing a series of preloaded calculations that run through a script called with the <em class="code">make check</em> commands. You should at least perform the first one:
+		</p>
+		<div class="code">
+			make check
+		</div>
+		<p>
+			To test OpenMP parallel code (Parallelization between cores):
+		</p>
+		<div class="code">
+			make check-omp
+		</div>
+		<p>
+			To test MPI parallel code (Parallelization between nodes):
+		</p>
+		<div class="code">
+			make check-mpi
+		</div>
+		<p>
+			Finally, to compile the whole program, run the <em class="code">make install</em> command.
+		</p>
+		<div class="code">
+			make install
+		</div>
+		<h2><a name="Run">How to run LibEFP?</a></h2>
+		<p>
+			If the library has been already compiled properly, to run a LibEFP job the user will need and input file and a parameters file <em class="code">.efp</em>.
+		</p>
+		<p>
+			With the parameters file located in the same directory as the input file, LibEFP jobs can be run using the command:
+		</p>
+		<div class="code">
+			libefp LibEFP_INPUT_NAME.in > LibEFP_OUTPUT_NAME.out
+		</div>
+		<p>
+			EFP-MD jobs can be run with the command:
+		</p>
+		<div class="code">
+			efpmd EFPMD_INPUT_NAME.in > EFPMD_OUTPUT_NAME.out
+		</div>
+		<p>
+			More options can be found below.
+		</p>
+		<h3><a name="Run-Input">LibEFP/EFPMD input template</a></h3>
+		<p>
+			A short example of an NPT EFP-MD run input file:
+		</p>
+		<div class="code">
+			&nbsp;run_type md<br>
+			&nbsp;ensemble npt<br>
+			&nbsp;time_step 2<br>
+			&nbsp;print_step 1<br>
+			&nbsp;velocitize true<br>
+			&nbsp;pressure 1.0<br>
+			&nbsp;coord points<br>
+			&nbsp;terms elec pol disp xr<br>
+			&nbsp;elec_damp overlap<br>
+			&nbsp;disp_damp overlap<br>
+			&nbsp;pol_damp tt<br>
+			&nbsp;enable_pbc true<br>
+			&nbsp;periodic_box 30.0 30.0 30.0<br>
+			&nbsp;enable_cutoff true<br>
+			&nbsp;swf_cutoff 10<br>
+			&nbsp;max_steps 250000<br>
+			&nbsp;userlib_path .<br>
+			&nbsp;temperature 300<br>
+			<br>
+			fragment water<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-0.533&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-2.036&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1.134<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.341&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1.814&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1.517<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-0.337&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-2.300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-0.211<br>
+			<br>
+			fragment water<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-0.398&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.367&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1.467<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.387&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.828&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1.697<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-0.112&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.901&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-0.696<br>
+			<br>
+			fragment water<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.127&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.178&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.834<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.680&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.046&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.921<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.483&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-0.381&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.351<br>
+			<br>
+			fragment water<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1.318&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.502&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.736<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-0.520&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.717&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.262<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1.006&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-0.146&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.070<br>
+		</div>
+		<h3><a name="Run-PBS">LibEFP/EFPMD PBS file template to run in the RCAC clusters at Purdue Univeristy</a></h3>
+		<p>
+			Several versions of LibEFP are already properly compiled in the RCAC clusters. In order to run a LibEFP job through the PBS queueing service the user can use the following template:
+		</p>
+		<div class="code">
+			#!/bin/bash -l<br>
+			# FILENAME: EFPMD_JOB_NAME.pbs<br>
+			<br>
+			# SHORT NAME OF THE JOB<br>
+			#PBS -N EFPMD_JOB_NAME<br>
+			<br>
+			# DECLARE THIS AS A NON-RERUNABLE JOB<br>
+			#PBS -r n<br>
+			<br>
+			# NAME OF THE QUEUE IN USE<br>
+			#PBS -q yourqueue<br>
+			<br>
+			# USER EMAIL FOR JOB STATUS UPDATES<br>
+			#PBS -M youremail@purdue.edu<br>
+			<br>
+			# SEND UPDATES WHEN ABORTING AND EXITING<br>
+			#PBS -m ae<br>
+			<br>
+			# AMOUNT OF RESERVED TIME IN THE COMMUNITY CLUSTER (ONE WEEK = 168 HOURS)<br>
+			#PBS -l walltime=24:00:00<br>
+			<br>
+			# AMOUNT OF NODES AND PROCESSORS PER NODE REQUESTED<br>
+			#PBS -l nodes=4:ppn=16<br>
+			<br>
+			# AMOUNT OF MEMORY (FOR ALL THE PROCESSORS) REQUESTED. OPTIONAL.<br>
+			#PBS -l mem=128000MB<br>
+			<br>
+			# LOAD INTEL AND OPENMPI LIBRARIES<br>
+			module load intel<br>
+			module load openmpi<br>
+			<br>
+			# STORE PBS VARIABLES TO A FILE<br>
+			cat $PBS_NODEFILE | uniq > pbsnodefile.$PBS_JOBID<br>
+			<br>
+			# ENABLE PARALLEL COMPUTATION UP TO THE DESIRED NUMBER OF PARALLEL THREADS<br>
+			export OMP_NUM_THREADS=16<br>
+			<br>
+			# CHANGE TO THE DIRECTORY FROM WHICH YOU ORIGINALLY SUBMITTED THIS JOB<br>
+			cd $PBS_O_WORKDIR<br>
+			<br>
+			# EXECUTE 'EFPMD_JOB_NAME_EFPMD.in' WITH LIBEFP 1.3.1 WITH OUTPUT TO 'EFPMD_JOB_NAME.out'<br>
+			mpirun -np 4 -machinefile pbsnodefile.$PBS_JOBID /group/lslipche/apps/libefp/libefp-1.3.1-beta-2015.11.13/bin/efpmd EFPMD_JOB_NAME.in > EFPMD_JOB_NAME.out<br>
+			<br>
+			# PROCESS 'EFPMD_JOB_NAME_EFPMD.out' TO PRODUCE THE TRAJECTORY FILE 'EFPMD_JOB_NAME.xyz'<br>
+			/group/lslipche/apps/libefp/libefp-1.3.1-beta-2015.11.13/bin/trajectory.pl EFPMD_JOB_NAME.out > EFPMD_JOB_NAME.xyz<br>
+		</div>
+	</div>
+	<!-- This is where the content of the page ends. -->
+	
+	<!-- Copyright information. -->
+	<div class="bottom">
+		<img style="border: 0px solid; width: 100%; height: auto;"
+			title="Bottom"
+			src="main/bottom.png"
+			alt="" hspace="0" vspace="0"/>
+	</div>
+	<footer>
+		<center>&copy 2016 Carlos H. Borca - Purdue Univeristy</center>
+	</footer>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-76513146-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</html>

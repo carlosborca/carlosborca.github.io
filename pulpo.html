@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+	<!-- General information and directives of this page. -->
+	<head>
+		<title>Carlos H. Borca - Recursos - Octopus</title>
+		<link href="styles/main.css" rel="stylesheet" type="text/css"/>
+	</head>
+	<!-- Links menu in spanish. -->	
+	<ul class="nav">
+		<li><a href="indice.html"/>Principal</a></li>
+		<li><a href="acerca.html"/>Acerca de m&iacute;</a></li>
+		<li><a href="investigacion.html"/>Investigaci&oacute;n</a></li>
+		<li><a href="personas.html"/>Personas</a></li>
+		<li><a href="publicaciones.html"/>Publicaciones</a></li>
+		<li><a href="eventos.html"/>Eventos</a></li>
+		<li><a href="iniciativas.html"/>Iniciativas</a></li>
+		<li><a href="recursos.html"/><b>Recursos</b></a></li>
+		<li><a href="octopus.html"/>English</a></li>
+	</ul>
+	<!-- Title and stylish image background. -->
+	<div>
+		<img style="border: 0px solid; width: 100%; height: auto;"
+			title="Header"
+			src="design/encabezado.png"
+			alt="" hspace="0" vspace="0"/>
+	</div>
+	
+	<!-- This is where the content of the page starts. -->
+	<div class="resources" align="justify">
+		<center><h1>Recursos: <font color="gray">Octopus</font></h1></center>
+	</div>
+	<!-- Resources menu in english. -->	
+	<ul class="resources">
+		<li><a href="libpfe.html"/>LibEFP</a></li>
+		<!-- <li><a href="gromacs.html"/>GROMACS</a></li> -->
+		<li><a href="pulpo.html"/><b>Octopus</b></a></li>
+		<!-- <li><a href="q-chem.html"/>Q-Chem</a></li> -->
+		<!-- <li><a href="gamess.html"/>GAMESS</a></li> -->
+		<!-- <li><a href="psi4.html"/>Psi4</a></li> -->
+		<!-- <li><a href="mopac.html"/>MOPAC2016</a></li> -->
+	</ul>
+	<div class="resources" align="justify">
+		<h2>Contenido</h2>
+		<ol><li><a href="pulpo.html#What"/>&iquest;Qu&eacute; es Octopus?</a></li>
+			<li><a href="pulpo.html#Octopus">P&aacute;gina Web de Octopus</a></li>
+			<li><a href="pulpo.html#How">&iquest;C&oacute;mo compilar Octopus 5.0.0 (Versi&oacute;n de desarrolladores)?</a>
+			<ol><li><a href="pulpo.html#Ubuntu">En Ubuntu 14.04 LTS</a>
+				<ol><li><a href="pulpo.html#Preparing">Preparaci&oacute;n del sitema operativo</a></li>
+					<li><a href="pulpo.html#Installing">Instalaci&oacute;n de las bibliotecas b&aacute;sicas requeridas</a></li>
+					<li><a href="pulpo.html#Cleaning">Lipieza de bibliotecas en desuso</a></li>
+					<li><a href="pulpo.html#scientific">Compilaci&oacute;n de bibliotecas cient&iacute;ficas</a></li>
+					<li><a href="pulpo.html#download">Descarga de Octopus a trav&eacute;s de SVN</a></li>
+					<li><a href="pulpo.html#configuration">Preparaci&oacute;n de la configuraci&oacute;n de Octopus</a></li>
+					<li><a href="pulpo.html#checking">Compilaci&oacute;n y chequeo Octopus</a></li>
+					<li><a href="pulpo.html#paths">Creaci&oacute;n de rutas del sistema para Octopus</a></li>
+				</ol>
+				</li>
+			</ol>
+			</li>
+		</ol>
+		<h2><a name="What">&iquest;Qu&eacute; es Octopus?</a></h2>
+		<p>
+			Octopus es un programa cient&iacute;fico dirigido a la experimentaci&oacute;n virtual ab initio en una gama cada vez m&aacute;s amplia de tipos de sistemas. Los electrones se describen mecanico-cu&aacute;nticamente dentro de la teor&iacute;a del funcional de la densidad (DFT), y en su forma dependiente del tiempo (TDDFT) al hacer simulaciones en el tiempo. Los n&uacute;cleos se describen cl&aacute;sicamente como part&iacute;culas puntuales. La interacci&oacute;n electron-n&uacute;cleo se describe dentro de la aproximaci&oacute;n de pseudopotenciales.
+		</p>
+		<p>
+			Para una ejecuci&oacute;n de &oacute;ptimo rendimiento, Octopus ha sido paralelizado usando MPI y OpenMP y puede escalar a decenas de miles de procesadores. Tambi&eacute;n soporta ejecuci&oacute;n en unidades de procesamiento gr&aacute;fico (GPU) a trav&eacute;s de OpenCL.
+		</p>
+		<p>
+			Octopus es un programa gratuito, lanzado bajo licencia GPL, por lo que se pueden descargar, usarlo y modificarlo libremente.
+		</p>
+		<p>
+			Soy desarrollador de Octopus de nivel primate. Mi trabajo se ha relacionado principalmente con la implementaci&oacute;n de <a href="http://dx.doi.org/10.1103/PhysRevLett.102.073005"/>correcci&oacute;n de Tkatchenko-Scheffler para interacciones de van der Waals</a> en aproximaciones est&aacute;ndar al funcional de la densidad.
+		</p>
+		<h2><a name="Octopus">P&aacute;gina Web de Octopus</a></h2>
+		<p>
+			Para encontrar informaci&oacute;n m&aacute;s detallada acerca de Octopus, vaya a: <a href="http://www.tddft.org/programs/octopus/wiki/index.php/Main_Page"/>OctopusWiki - TDDFT.org</a>
+		</p>
+		<h2><a name="How">&iquest;C&oacute;mo compilar Octopus 5.0.0 (Versi&oacute;n de desarrolladores)?</a></h2>
+		<p>
+			Tal vez, la parte m&aacute;s dif&iacute;cil de usar Octopus es compilarlo correctamente.
+		</p>
+		<h3><a name="Ubuntu">En Ubuntu 14.04 LTS</a></h3>
+		<p>
+			Este es un m&eacute;todo eficaz para compilar Octopus en <a href="http://www.ubuntu.com/desktop"/>Ubuntu Desktop 14.04 LTS</a>. Se basa en la secci&oacute;n "slow instructions" del manual de Octopus, y fue probada por &uacute;ltima vez el 14 de septiembre de 2015:
+		</p>
+		<h4><a name="Preparing">Preparaci&oacute;n del sitema operativo</a></h4>
+		<p>
+			Aseg&uacute;rese de que su sistema est&aacute; al d&iacute;a.
+		</p>
+		<div class="code">
+			sudo apt-get update<br>
+			sudo apt-get upgrade<br>
+			sudo apt-get dist-upgrade<br>
+		</div>
+		<h4><a name="Installing">Instalaci&oacute;n de las bibliotecas b&aacute;sicas requeridas</a></h4>
+		<p>
+			Instale los compiladores.
+		</p>
+		<div class="code">
+			sudo apt-get install build-essential<br>
+			sudo apt-get install gfortran<br>
+		</div>
+		<p>
+			Instale las bibliotecas de matem&aacute;ticas
+		</p>
+		<div class="code">
+			sudo apt-get install libatlas-dev<br>
+			sudo apt-get install libblas-dev<br>
+			sudo apt-get install liblapack-dev<br>
+		</div>
+		<p>
+			Instale la biblioteca Fast Fourier Transform 3.
+		</p>
+		<div class="code">
+			sudo apt-get install libfftw3*
+		</div>
+		<p>
+			Install SVN.
+		</p>
+		<div class="code">
+			sudo apt-get install subversion
+		</div>
+		<h4><a name="Cleaning">Lipieza de bibliotecas en desuso</a></h4>
+		<p>
+			Limpie el sistema.
+		</p>
+		<div class="code">
+			sudo apt-get autoremove<br>
+			sudo apt-get autoclean<br>
+			sudo apt-get clean<br>
+		</div>
+		<h4><a name="scientific">Compilaci&oacute;n de bibliotecas cient&iacute;ficas</a></h4>
+		<p>
+			Compile la biblioteca ciet&iacute;fca de GNU.
+		</p>
+		<div class="code">
+			cd /tmp/<br>
+			sudo -s<br>
+			wget <a href="ftp://ftp.gnu.org/gnu/gsl/gsl-1.9.tar.gz">ftp://ftp.gnu.org/gnu/gsl/gsl-1.9.tar.gz</a><br>
+			tar -xvf gsl-1.9.tar.gz<br>
+			cd gsl-1.9/<br>
+			./configure<br>
+			make<br>
+			make install<br>
+			exit<br>
+		</div>
+		<p>
+			Adem&aacute;s de instalar la biblioteca Fast Fourier Transform 3, tambi&eacute;n necesitar&aacute; compilar la versi&oacute;n 3.3.4.
+		</p>
+		<div class="code">
+			cd /tmp/<br>
+			sudo -s<br>
+			wget <a href="http://www.fftw.org/fftw-3.3.4.tar.gz">http://www.fftw.org/fftw-3.3.4.tar.gz</a><br>
+			tar -xvf fftw-3.3.4.tar.gz<br>
+			cd fftw-3.3.4/<br>
+			./configure<br>
+			make<br>
+			make install<br>
+			exit<br>
+		</div>
+		<p>
+			Compile la biblioteca XC.
+		</p>
+		<div class="code">
+			cd /tmp/<br>
+			sudo -s<br>
+			wget <a href="http://www.tddft.org/programs/octopus/down.php?file=libxc/libxc-2.1.2.tar.gz">http://www.tddft.org/programs/octopus/down.php?file=libxc/libxc-2.1.2.tar.gz</a><br>
+			mv down.php\?file\=libxc%2Flibxc-2.1.2.tar.gz libxc-2.1.2.tar.gz<br>
+			tar -xvf libxc-2.1.2.tar.gz<br>
+			cd libxc-2.1.2/<br>
+			./configure<br>
+			make<br>
+			make install<br>
+			exit<br>
+		</div>
+		<h4><a name="download">Descarga de Octopus a trav&eacute;s de SVN</a></h4>
+		<p>
+			Cree un directorio para descargar el c&oacute;digo fuente de Octopus.
+		</p>
+		<div class="code">
+			cd ~/<br>
+			mkdir ~/Installers<br>
+			mkdir ~/Installers/Octopus-5.0.0<br>
+		</div>
+		<p>
+			Obtenga la &uacute;ltima versi&oacute;n de Octopus usando SVN.
+		</p>
+		<div class="code">
+			cd ~/Installers/Octopus-5.0.0/<br>
+			svn co http://www.tddft.org/svn/octopus/trunk<br>
+			cd ~/Installers/Octopus-5.0.0/trunk/<br>
+			autoreconf -i<br>
+		</div>
+		<h4><a name="configuration">Preparaci&oacute;n de la configuraci&oacute;n de Octopus</a></h4>
+		<p>
+			Busque en qu&eacute; parte de su sistema est&aacute;n ubicadas las bibliotecas relevantes.
+		</p>
+		<div class="code">
+			whereis libblas.a liblapack.a libfftw3.a
+		</div>
+		<p>
+			Exporte los correspondientes indicadores para el <em>script</em> <em class="code">configure</em>.
+		</p>
+		<div class="code">
+			export LIBS_BLAS=/usr/lib/libblas.a<br>
+			export LIBS_LAPACK=/usr/lib/liblapack.a<br>
+			export LIBS_FFT=/usr/local/lib/libfftw3.a<br>
+		</div>
+		<h4><a name="checking">Compilaci&oacute;n y chequeo de Octopus</a></h4>
+		<p>
+			Compile Octopus.
+		</p>
+		<div class="code">
+			./configure --prefix=$HOME/octopus --with-gsl-prefix=/usr/local --with-libxc-prefix=/opt/etsf<br>
+			make clean<br>
+			make<br>
+			make install<br>
+		</div>
+		<p>
+			Verifique la instalaci&oacute;n mediante los archivos de pruebas precargados.
+		</p>
+		<div class="code">
+			make check
+		</div>
+		<h4><a name="paths">Creaci&oacute;n de rutas del sistema para Octopus</a></h4>
+		<p>
+			Cree rutas de sistema para los binarios de Octopus en su <em class="code">.profile</em>.
+		</p>
+		<div class="code">
+			export PATH="~/octopus/bin:$PATH"
+		</div>
+	</div>
+	<!-- This is where the content of the page ends. -->
+	
+	<!-- Copyright information. -->
+	<div class="bottom">
+		<img style="border: 0px solid; width: 100%; height: auto;"
+			title="Bottom"
+			src="main/bottom.png"
+			alt="" hspace="0" vspace="0"/>
+	</div>
+	<footer>
+		<center>&copy 2016 Carlos H. Borca - Purdue Univeristy</center>
+	</footer>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-76513146-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</html>
