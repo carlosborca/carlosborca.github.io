@@ -81,7 +81,7 @@
 		<h2><a name="How">&iquest;C&oacute;mo compilar LibEFP 1.4.2?</a></h2>
 		<h3><a name="Ubuntu">En Ubuntu 16.04 LTS</a></h3>
 		<p>
-			Este es un m&eacute;todo eficaz para compilar LibEFP en <a href="http://www.ubuntu.com/desktop"/>Ubuntu Desktop 14.04 LTS</a>. Fue probada por &uacute;ltima vez el 23 de mayo de 2017:
+			Este es un m&eacute;todo eficaz para compilar LibEFP en <a href="http://www.ubuntu.com/desktop"/>Ubuntu Desktop 16.04 LTS</a>. Fue probada por &uacute;ltima vez el 23 de mayo de 2017:
 		</p>
 		<h4><a name="Ubuntu-Preparing">Preparaci&oacute;n del sitema operativo</a></h4>
 		<p>
@@ -137,7 +137,7 @@
 			mv libefp libefp-1.4.2-beta-2017.05.23
 		</div>
 		</p>
-			Para explorar el contenido del c&oacute;digo vaya al directorio que acaba de renombrar.
+			Para explorar el contenido del c&oacute;digo, vaya al directorio que acaba de renombrar.
 		</p>
 		<div class="code">
 			cd ~/libefp-1.4.2-beta-2017.05.23/
@@ -147,7 +147,10 @@
 			Tambi&eacute;n se necesita un archivo de configuraci&oacute;n. Este archivo <em class="code">config.inc</em> contiene todas las instrucciones para que el sistema reconozca los compiladores, directorio de instalaci&oacute;n, y otras opciones.
 		</p>
 		<p>
-			A continuaci&oacute;n se da un ejemplo de dicho archivo:
+			Varios borradores de &eacute;ste se encuentran almacenados en el directorio <em class="code">config/</em>.
+		</p>
+		<p>
+			A continuaci&oacute;n se da un ejemplo de dicho archivo, basado en el borrador <em class="code">gcc-netlib-openmpi.inc</em>:
 		</p>
 		<div class="code">
 			# C compiler<br>
