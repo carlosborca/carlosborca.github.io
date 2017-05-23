@@ -43,8 +43,8 @@
 		<h2>Contents</h2>
 		<ol><li><a href="libefp.html#What"/>What is LibEFP?</a></li>
 			<li><a href="libefp.html#LibEFP">LibEFP Web Page</a></li>
-			<li><a href="libefp.html#How">How to compile LibEFP 1.3.0?</a>
-			<ol><li><a href="libefp.html#Ubuntu">On Ubuntu 14.04 LTS</a>
+			<li><a href="libefp.html#How">How to compile LibEFP 1.4.2?</a>
+			<ol><li><a href="libefp.html#Ubuntu">On Ubuntu 16.04 LTS</a>
 				<ol><li><a href="libefp.html#Ubuntu-Preparing">Preparing the operative system</a></li>
 					<li><a href="libefp.html#Ubuntu-Installing">Installing required basic libraries</a></li>
 					<li><a href="libefp.html#Ubuntu-Cleaning">Cleaning unused libraries</a></li>
@@ -77,10 +77,10 @@
 		<p>
 			To find more detailed information about LibEFP, go to: <a href="http://www.libefp.org/"/>libefp - The Effective Fragment Potential method implementation</a>
 		</p>
-		<h2><a name="How">How to compile LibEFP 1.3.0?</a></h2>
-		<h3><a name="Ubuntu">On Ubuntu 14.04 LTS</a></h3>
+		<h2><a name="How">How to compile LibEFP 1.4.2?</a></h2>
+		<h3><a name="Ubuntu">On Ubuntu 16.04 LTS</a></h3>
 		<p>
-			This is an effective method to compile LibEFP on <a href="http://www.ubuntu.com/desktop"/>Ubuntu Desktop 14.04 LTS</a>. It was tested on May 19th, 2016:
+			This is an effective method to compile LibEFP on <a href="http://www.ubuntu.com/desktop"/>Ubuntu Desktop 16.04 LTS</a>. It was tested on May 23rd, 2017:
 		</p>
 		<h4><a name="Ubuntu-Preparing">Preparing the operative system</a></h4>
 		<p>
@@ -100,7 +100,7 @@
 			sudo apt-get install gfortran<br>
 		</div>
 		<p>
-			Install Math Libraries
+			Install Math Libraries.
 		</p>
 		<div class="code">
 			sudo apt-get install libatlas-dev<br>
@@ -124,7 +124,7 @@
 			cd ~/
 			</div>
 		<p>
-			In order to compile LibEFP 1.3.0, you need to get the files for installation. This can be done using GIT Hub.
+			In order to compile LibEFP 1.4.2, you need to get the files for installation. This can be done using GIT Hub.
 		</p>
 		<div class="code">
 			git clone <a href="https://github.com/libefp/libefp"/>git://github.com/libefp/libefp.git</a>
@@ -133,20 +133,23 @@
 			This will create a directory named <em class="code">libefp</em> in your present working directory. You may want to rename it to include the version and other details of the compilation you are about to execute:
 		</p>
 		<div class="code">
-			mv libefp libefp-1.3.0-beta-2016.05.19
+			mv libefp libefp-1.4.2-beta-2017.05.23
 		</div>
 		</p>
 			To explore the contents of the code go to the directory you just renamed.
 		</p>
 		<div class="code">
-			cd ~/libefp-1.3.0-beta-2016.05.19/
+			cd ~/libefp-1.4.2-beta-2017.05.23/
 		</div>
 		<h4><a name="Ubuntu-Contents">Contents of the <em class="code">config.inc</em> file</a></h4>
 		<p>
 			You also need a configuration file. This <em class="code">config.inc</em> file contains all the instructions for the system to recognize the compilers, installation directory, and other options.
 		</p>
 		<p>
-			An example of such file is given below:
+			Several templates can be found in the <em class="code">config/</em> directory.
+		</p>
+		<p>
+			An example of the configuration file, based on <em class="code">gcc-netlib-openmpi.inc</em>, is given below:
 		</p>
 		<div class="code">
 			# C compiler<br>
@@ -156,10 +159,10 @@
 			FC= gfortran<br>
 			<br>
 			# install prefix<br>
-			PREFIX= /usr/local<br>
+			PREFIX= /home/carlosborca/libefp<br>
 			<br>
 			# fragment library path<br>
-			FRAGLIB= $(PREFIX)/share/libefp/fraglib<br>
+			FRAGLIB= $(PREFIX)/fraglib-installed<br>
 			<br>
 			# additional link libraries<br>
 			MYLIBS= -lblas -llapack -lgfortran<br>
@@ -174,7 +177,7 @@
 			MYFFLAGS= -g<br>
 			<br>
 			# ar command<br>
-			AR= ar rcu<br>
+			AR= ar rc<br>
 			<br>
 			# ranlib command<br>
 			RANLIB= ranlib<br>
@@ -224,7 +227,7 @@
 			If you did not installed in the default directory, you may need to create paths for LibEFP binaries on your <em class="code">.profile</em>.
 		</p>
 		<div class="code">
-			export PATH="/usr/local/bin:$PATH"
+			export PATH="/home/carlosborca/libefp/bin:$PATH"
 		</div>
 		<h3><a name="RCAC">On Clusters of the Rosen Center for Advanced Computing at Purdue Univeristy</a></h3>
 		<h4><a name="RCAC-Cloning">Cloning the GIT repository</a></h4>
@@ -235,7 +238,7 @@
 			cd /group/lslipche/apps/libefp/
 			</div>
 		<p>
-			In order to compile LibEFP 1.3.0, you need to get the files for installation. This can be done using GIT Hub.
+			In order to compile LibEFP 1.4.2, you need to get the files for installation. This can be done using GIT Hub.
 		</p>
 		<div class="code">
 			git clone <a href="https://github.com/libefp/libefp"/>git://github.com/libefp/libefp.git</a>
@@ -244,13 +247,13 @@
 			This will create a directory named <em class="code">libefp</em> in your present working directory. You may want to rename it to include the version and other details of the compilation you are about to execute:
 		</p>
 		<div class="code">
-			mv libefp libefp-1.3.0-beta-2016.05.19
+			mv libefp libefp-1.4.2-beta-2017.05.23
 		</div>
 		</p>
 			To explore the contents of the code go to the directory you just renamed.
 		</p>
 		<div class="code">
-			cd /group/lslipche/apps/libefp/libefp-1.3.0-beta-2016.05.19/
+			cd /group/lslipche/apps/libefp/libefp-1.4.2-beta-2017.05.23/
 		</div>
 		<h4><a name="RCAC-Contents">Contents of the <em class="code">config.inc</em> file</a></h4>
 		<p>
@@ -267,10 +270,10 @@
 			FC= ifort<br>
 			<br>
 			# install prefix<br>
-			PREFIX= /group/lslipche/apps/libefp/libefp-1.3.0-beta-2016.05.19<br>
+			PREFIX= /group/lslipche/apps/libefp/libefp-1.4.2-beta-2017.05.23<br>
 			<br>
 			# fragment library path<br>
-			FRAGLIB= $(PREFIX)/fraglib2<br>
+			FRAGLIB= $(PREFIX)/fraglib-installed<br>
 			<br>
 			# additional link libraries<br>
 			MYLIBS= -lifcore<br>
@@ -279,13 +282,13 @@
 			MYLDFLAGS=<br>
 			<br>
 			# additional C flags<br>
-			MYCFLAGS= -DWITH_MPI -std=c99 -O3 -g -mkl=sequential -openmp<br>
+			MYCFLAGS= -DWITH_MPI -std=c99 -O3 -g -mkl=sequential -fopenmp<br>
 			<br>
 			# additional Fortran flags<br>
 			MYFFLAGS= -g<br>
 			<br>
 			# ar command<br>
-			AR= ar rcu<br>
+			AR= ar rc<br>
 			<br>
 			# ranlib command<br>
 			RANLIB= ranlib<br>
