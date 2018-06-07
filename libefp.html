@@ -43,19 +43,19 @@
 		<h2>Contents</h2>
 		<ol><li><a href="libefp.html#What"/>What is LibEFP?</a></li>
 			<li><a href="libefp.html#LibEFP">LibEFP Web Page</a></li>
-			<li><a href="libefp.html#How">How to compile LibEFP 1.4.2?</a>
-			<ol><li><a href="libefp.html#Ubuntu">On Ubuntu 16.04 LTS</a>
+			<li><a href="libefp.html#How">How to compile LibEFP 1.5.0?</a>
+			<ol><li><a href="libefp.html#Ubuntu">On Ubuntu 18.04 LTS</a>
 				<ol><li><a href="libefp.html#Ubuntu-Preparing">Preparing the operative system</a></li>
-					<li><a href="libefp.html#Ubuntu-Installing">Installing required basic libraries</a></li>
+					<li><a href="libefp.html#Ubuntu-Installing">Installing required basic software and libraries</a></li>
 					<li><a href="libefp.html#Ubuntu-Cleaning">Cleaning unused libraries</a></li>
-					<li><a href="libefp.html#Ubuntu-Cloning">Cloning the GIT repository</a></li>
+					<li><a href="libefp.html#Ubuntu-Cloning">Cloning the GitHub repository</a></li>
 					<li><a href="libefp.html#Ubuntu-Contents">Contents of the <em class="code">config.inc</em> file</a></li>
 					<li><a href="libefp.html#Ubuntu-Compilation">Compilation</a></li>
 					<li><a href="libefp.html#Ubuntu-Paths">Creating paths for LibEFP</a></li>
 				</ol>
 				</li>
 				<li><a href="libefp.html#RCAC">On Clusters of the Rosen Center for Advanced Computing (RCAC) at Purdue University</a>
-				<ol><li><a href="libefp.html#RCAC-Cloning">Cloning the GIT repository</a></li>
+				<ol><li><a href="libefp.html#RCAC-Cloning">Cloning the GitHub repository</a></li>
 					<li><a href="libefp.html#RCAC-Contents">Contents of the <em class="code">config.inc</em> file</a></li>
 					<li><a href="libefp.html#RCAC-Loading">Loading required modules (Developers subversion on RCAC's Carter)</a></li>
 					<li><a href="libefp.html#RCAC-Compilation">Compilation</a></li>
@@ -77,79 +77,92 @@
 		<p>
 			To find more detailed information about LibEFP, go to: <a href="http://www.libefp.org/"/>libefp - The Effective Fragment Potential method implementation</a>
 		</p>
-		<h2><a name="How">How to compile LibEFP 1.4.2?</a></h2>
-		<h3><a name="Ubuntu">On Ubuntu 16.04 LTS</a></h3>
+		<h2><a name="How">How to compile LibEFP 1.5.0?</a></h2>
+		<h3><a name="Ubuntu">On Ubuntu 18.04 LTS</a></h3>
 		<p>
-			This is an effective method to compile LibEFP on <a href="http://www.ubuntu.com/desktop"/>Ubuntu Desktop 16.04 LTS</a>. It was tested on May 23rd, 2017:
+			This is an effective method to compile LibEFP on <a href="http://www.ubuntu.com/desktop"/>Ubuntu Desktop 18.04 LTS</a>. This set of instructions asumes you start with a fresh installation of Ubuntu Desktop 18.04 LTS. Consequently, some of the steps described here, such as the installation of libraries, may not be required for your system. This procedure was last tested on June 1st, 2018:
 		</p>
 		<h4><a name="Ubuntu-Preparing">Preparing the operative system</a></h4>
 		<p>
 			Make sure your system is up-to-date.
 		</p>
 		<div class="code">
-			sudo apt-get update<br>
-			sudo apt-get upgrade<br>
-			sudo apt-get dist-upgrade<br>
+			sudo apt update<br>
+			sudo apt upgrade<br>
+			sudo apt dist-upgrade<br>
 		</div>
-		<h4><a name="Ubuntu-Installing">Installing required basic libraries</a></h4>
+		<h4><a name="Ubuntu-Installing">Installing required basic software and libraries</a></h4>
 		<p>
 			Install compilers.
 		</p>
 		<div class="code">
-			sudo apt-get install build-essential<br>
-			sudo apt-get install gfortran<br>
+			sudo apt install build-essential<br>
+			sudo apt install gfortran<br>
 		</div>
 		<p>
 			Install Math Libraries.
 		</p>
 		<div class="code">
-			sudo apt-get install libatlas-dev<br>
-			sudo apt-get install libblas-dev<br>
-			sudo apt-get install liblapack-dev<br>
+			sudo apt install libatlas-base-dev<br>
+			sudo apt install libblas-dev<br>
+			sudo apt install liblapack-dev<br>
+		</div>
+		<p>
+			Install MPI.
+		</p>
+		<div class="code">
+			sudo apt install mpich<br>
+			sudo apt install mpich-doc<br>
+		</div>
+		<p>
+			Install Git.
+		</p>
+		<div class="code">
+			sudo apt install git<br>
 		</div>
 		<h4><a name="Ubuntu-Cleaning">Cleaning unused libraries</a></h4>
 		<p>
-			Clean after yourself.
+			Clean after yourself (optional).
 		</p>
 		<div class="code">
-			sudo apt-get autoremove<br>
-			sudo apt-get autoclean<br>
-			sudo apt-get clean<br>
+			sudo apt autoremove<br>
+			sudo apt autoclean<br>
+			sudo apt clean<br>
 		</div>
-		<h4><a name="Ubuntu-Cloning">Cloning the GIT repository</a></h4>
+		<h4><a name="Ubuntu-Cloning">Cloning the GitHub repository</a></h4>
 		<p>
-			First, go to the directory where you want to download the source code, for example your home directory:
+			First, go to the directory where you want to download the source code, for example:
 		</p>
 		<div class="code">
-			cd ~/
+			cd ~/Gits/
 			</div>
 		<p>
-			To compile LibEFP 1.4.2, you need to get the files for installation. This can be done using GIT Hub.
+			To compile LibEFP 1.5.0, you need to get the files for installation. This can be done using Git.
 		</p>
 		<div class="code">
 			git clone <a href="https://github.com/libefp/libefp"/>git://github.com/libefp/libefp.git</a>
 		</div>
 		<p>
-			This will create a directory named <em class="code">libefp</em> in your present working directory. You may want to rename it to include the version and other details of the compilation you are about to execute:
+			This will create a directory named <em class="code">libefp</em> in your present working directory. You may want to rename it to include the version and other details of the code you are to compile:
 		</p>
 		<div class="code">
-			mv libefp libefp-1.4.2-beta-2017.05.23
+			mv libefp libefp-1.5.0-2018.06.01
 		</div>
 		</p>
 			To explore the contents of the code go to the directory you just renamed.
 		</p>
 		<div class="code">
-			cd ~/libefp-1.4.2-beta-2017.05.23/
+			cd ~/Gits/libefp-1.5.0-2018.06.01/
 		</div>
 		<h4><a name="Ubuntu-Contents">Contents of the <em class="code">config.inc</em> file</a></h4>
 		<p>
-			You also need a configuration file. This <em class="code">config.inc</em> file contains all the instructions for the system to recognize the compilers, installation directory, and other options.
+			You also need a configuration file. This <em class="code">config.inc</em> file contains a set of instructions for the system to recognize the compilers, installation directory, and other options.
 		</p>
 		<p>
 			Several templates can be found in the <em class="code">config/</em> directory.
 		</p>
 		<p>
-			An example of the configuration file, based on <em class="code">gcc-netlib-openmpi.inc</em>, is given below:
+			This is an example of the configuration file, based on <em class="code">gcc-netlib-openmpi.inc</em>:
 		</p>
 		<div class="code">
 			# C compiler<br>
@@ -171,35 +184,20 @@
 			MYLDFLAGS=<br>
 			<br>
 			# additional C flags<br>
-			MYCFLAGS= -DWITH_MPI -std=c99 -O3 -g -fopenmp<br>
+			MYCFLAGS= -DEFP_USE_MPI -std=c99 -O3 -g -fopenmp<br>
 			<br>
 			# additional Fortran flags<br>
 			MYFFLAGS= -g<br>
-			<br>
-			# ar command<br>
-			AR= ar rc<br>
-			<br>
-			# ranlib command<br>
-			RANLIB= ranlib<br>
-			<br>
-			# rm command<br>
-			RM= rm -f<br>
-			<br>
-			# tags program<br>
-			CTAGS= ctags<br>
-			<br>
-			# tags file<br>
-			TAGS= tags<br>
 		</div>
 		<h4><a name="Ubuntu-Compilation">Compilation</a></h4>
 		<p>
-			Compilation should be now straightforward. First you will run the <em class="code">make</em> command. This will verify that all things are in order for compilation of the whole package (if you only need the library you can use <em class="code">make libefp</em>, instead.).
+			Compilation should be straightforward now. First you will run the <em class="code">make</em> command. This will verify that all things are in order and try compilation of the whole package (if you only need the library, not the Molecular Dynamics engine <em class="code">EFPMD</em>, you can use <em class="code">make libefp</em>, instead).
 		</p>
 		<div class="code">
 			make
 		</div>
 		<p>
-			If <em class="code">make</em> did not result in error, you may now check that the program is running properly. That is done by executing a series of preloaded calculations that run through a script called with the <em class="code">make check</em> commands. You should at least perform the first one:
+			If <em class="code">make</em> did not result in error, you may now check that the compiled code is running properly. That is done by executing a series of preloaded test calculations that run through a script called with the <em class="code">make check</em> commands. You should at least perform the first one:
 		</p>
 		<div class="code">
 			make check
@@ -208,29 +206,29 @@
 			To test OpenMP parallel code (Parallelization between cores):
 		</p>
 		<div class="code">
-			make check-omp
+			make checkomp
 		</div>
 		<p>
 			To test MPI parallel code (Parallelization between nodes):
 		</p>
 		<div class="code">
-			make check-mpi
+			make checkmpi
 		</div>
 		<p>
-			Finally, to compile the whole program, run the <em class="code">make install</em> command.
+			Finally, to install the program in the <em class="code">$(PREFIX)</em> directory, run the <em class="code">make install</em> command.
 		</p>
 		<div class="code">
 			make install
 		</div>
 		<h4><a name="Ubuntu-Paths">Creating paths for LibEFP</a></h4>
 		<p>
-			If you did not installed in the default directory, you may need to create paths for LibEFP binaries on your <em class="code">.profile</em>.
+			If you installed the library in directory different than the default, you may need to create paths for LibEFP binaries on your <em class="code">.bashrc</em> (optional).
 		</p>
 		<div class="code">
 			export PATH="/home/carlosborca/libefp/bin:$PATH"
 		</div>
 		<h3><a name="RCAC">On Clusters of the Rosen Center for Advanced Computing at Purdue University</a></h3>
-		<h4><a name="RCAC-Cloning">Cloning the GIT repository</a></h4>
+		<h4><a name="RCAC-Cloning">Cloning the GitHub repository</a></h4>
 		<p>
 			First, go to the LibEFP directory inside the Apps directory of the Slipchenko Group:
 		</p>
@@ -238,7 +236,7 @@
 			cd /group/lslipche/apps/libefp/
 			</div>
 		<p>
-			To compile LibEFP 1.4.2, you need to get the files for installation. This can be done using GIT Hub.
+			To compile LibEFP 1.4.2, you need to get the files for installation. This can be done using Git.
 		</p>
 		<div class="code">
 			git clone <a href="https://github.com/libefp/libefp"/>git://github.com/libefp/libefp.git</a>

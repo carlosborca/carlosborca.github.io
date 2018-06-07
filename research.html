@@ -26,11 +26,43 @@
 	</div>
 	
 	<!-- This is where the content of the page starts. -->
-	<center>
-		<h1>
-			Research Highlights
-		</h1>
+	
+	<center><h1>Research Highlights</h1></center>
+	
+	<center><h2 class="research"><a name="Code">Theory Development and Software Implementation</a></h2></center>
+
+	<div class="research-images">
+		<center>
+			<img style="border: 1px solid; width: auto; height: 265px;"
+				title="CrystaLattE: Dual-level Paralelism Aplied to Molecular Crystals"
+				src="research/CrystaLattE.png"
+				alt="" hspace="5" vspace="5"/>
+			<img style="border: 1px solid; width: auto; height: 265px;"
+				title="Timescale Separation in EFP-MD"
+				src="research/EFP-MTS-MD.png"
+				alt="" hspace="6" vspace="5"/>
+			
+		</center>
+	</div>
+
+	<body>
+		<center><h3 class="research"><a name="CrystaLattE">CrystaLattE: Automated Computation of Benchmark-level Lattice Energies of Molecular Crystals</a></h3></center>
+		<p class="research" align="justify">
+			CrystaLattE is a new software tool that automates dual-level parallel computation of lattice energies of molecular crystals. The program is designed with the aim of computing lattice energies accurately enough to discriminate between low energy polymorphs of organic crystals. Our approach uses the many-body expansion approach and exploits the long-range three-dimensional periodic order of crystals to automatically compute lattice energies within chemical accuracy. The code is designed to be connected to the Quantum Chemistry Common Driver and Databases (QCDB) and it leverages some of its unique features. CrystaLattE is also interfaced with the computational chemistry package PSI4, which is employed to execute the energy computations. The code is written in Python 3 and it is distributed as <a href="https://github.com/carlosborca/CrystaLattE"/>open-source software through GitHub</a>.
+			<!-- We also present a new benchmark database of crystal lattice energies calculated with CrystaLattE. This database displays a hierarchical scheme, featured in CrystaLattE, that employs the CCSD(T)/CBS method for the most relevant interactions and MP2/aug-cc-pVDZ for more distant interactions. Our database includes small organic molecules contained in other crystal databases and expands them with an additional set of molecular crystals relevant in pharmaceutical and energy-research applications. -->
+		</p>
+		<center><h3 class="research">Evaluation of the Applicability of Density Funcional Aproximations for Molecular Crystals</h3></center>
+		<p class="research" align="justify">
+			A new benchmark database of crystal lattice energies has been generated with CrystaLattE. This database displays a hierarchical scheme, featured in CrystaLattE, that employs the CCSD(T)/CBS method for the most relevant interactions and MP2/aug-cc-pVDZ for more distant interactions. Our database includes small organic molecules contained in other crystal databases and expands them with an additional set of molecular crystals relevant in pharmaceutical and energy-research applications. Benchmark crystal lattice energies of this database are compared with density functional approximations to evaluate its applicability in crystal structure prediction.
+		</p>
+		<center><h3 class="research">Timescale Separation of Energy Contributions in the Effective Fragment Potential</h3></center>
+		<p class="research" align="justify">
+			The effective fragment potential (EFP) method is a systematic approach to describing intermolecular interactions in an efficient yet rigorous way. EFP is a quantum mechanical based potential that can be thought of as a non-empirical polarizable force field. In this work the time evolution of electrostatic, polarization, dispersion, and exchange-repulsion energies is analyzed in small clusters of water, simulated under the microcanonical ensemble. Based on these results, we explore an approach to accelerate EFP molecular dynamics simulations by exploiting the inherent timescale separation between each of those energy contributions.
+		</p>
+	</body>
+
 	<center><h2 class="research"><a name="ForceFields">Classical and Polarizable Force Field Dynamics</a></h2></center>
+
 	<div class="research-images">
 		<center>
 			<img style="border: 1px solid; width: auto; height: 320px;"
@@ -44,29 +76,49 @@
 			
 		</center>
 	</div>
+
 	<body>
-		<center><h3 class="research">Timescale Separation of Energy Contributions in the Effective Fragment Potential</h3></center>
-		<p class="research" align="justify">
-			The effective fragment potential (EFP) method is a systematic approach to describing intermolecular interactions in an efficient yet rigorous way. EFP is a quantum mechanical based potential that can be thought of as a non-empirical polarizable force field. In this work the time evolution of electrostatic, polarization, dispersion, and exchange-repulsion energies is analyzed in small clusters of water, simulated under the microcanonical ensemble. Based on these results, we explore an approach to accelerate EFP molecular dynamics simulations by exploiting the inherent timescale separation between each of those energy contributions.
-		</p>
 		<center><h3 class="research">Determining Melting Temperature of Ice with the Effective Fragment Potential</h3></center>
 		<p class="research" align="justify">
 			Capturing the complexity of water at the molecular scale has been a challenge, a task that has relied on both classical and quantum descriptions of intermolecular interactions. In life and physical sciences, water plays an essential role in the stabilization of biomolecules and acid-base chemical reactions. In addition, insight on the basic mechanisms of ice formation are crucial in the understanding of environmental problems, as well as atmospheric phenomena. However, many classical water models are not adequate for the study of low-temperature systems because they overlook non-pairwise-additive effects, and quantum methods are limited to molecular systems of small dimensions. Theoretical methods that can accurately account for the diverse types of intermolecular interactions existent in water are required. In this project, the thermodynamic equilibrium between water and ice was explored using the EFP molecular dynamics. The melting point of EFP ice was calculated based on the analysis of the evolution of the total energy along simulations in the isothermal-isobaric ensemble at different temperatures.
 		</p>
-		<center><h3 class="research">Atomistic Molecular Dynamics of Nanohydrogels</h3></center>
+		<center><h3 class="research"><a name="Hydrogels">Atomistic Molecular Dynamics of Nanohydrogels</a></h3></center>
 		<p class="research" align="justify">
 			Hydrogels are materials capable of absorbing water within networks of entangled hydrophilic polymers. They have been widely investigated for their use in materials science, nanotechnology, and novel pharmaceuticals. However, the mechanistic details that explain their water-absorbent features are not well understood. Using all-atom molecular dynamics, the structural transformation  due to water absorption in chitosan nano-hydrogels was studied. Two sets of nano-scaled, single-chained chitosan models were simulated: one to study the swelling dependence upon the degree of self-crosslinking, and other to observe the response with respect to the degree of protonation. It was verified that nano-hydrogels keep their ability to absorb water and swell, regardless of their degree of crosslinking. Noteworthy, it was found that the swelling behavior of nano-scaled chitosan is pH-dependent, and it is considerably more limited than that of larger-scale hydrogels. Thus, this study suggests that properties of nanohydrogels are significantly different from those of larger hydrogels. <a href="http://dx.doi.org/10.1021/acs.jpcb.5b11230"/>These findings have been recently reported in the The Journal of Physical Chemistry B</a>.
 		</p>
+	</body>
+
+	<center><h2 class="research"><a name="Pharmaceutics">Molecular Modeling for Pharmaceutical Applications</a></h2></center>
+
+	<div class="research-images">
+		<center>
+			<img style="border: 1px solid; width: auto; height: 320px;"
+				title="MD of Hydrogels Featured in the Cover of JPCB"
+				src="research/Polymers.jpg"
+				alt="" hspace="5" vspace="5"/>
+			<img style="border: 1px solid; width: auto; height: 320px;"
+				title="EFP Ice and Water System"
+				src="research/Bile_Salts.jpg"
+				alt="" hspace="6" vspace="5"/>
+			
+		</center>
+	</div>
+
+	<body>
 		<center><h3 class="research">Mechanistic Design of Polymers with Applications on Pharmaceutics</h3></center>
 		<p class="research" align="justify">
-			The bioavailability of a high percentage of new drug candidates is limited by their poor solubility. The use of the amorphous form of the drug is a good strategy to improve their solubility. However, the amorphous state is unstable, and the drug will crystallize over time, losing its solubility advantage. Polymers are used to stabilize amorphous formulations, and to maintain high supersaturations following dissolution of the formulation. While experimental studies with commercial polymers show differences in polymer effectiveness, the molecular mechanism of stabilization is still unclear, making the rational design of novel polymers challenging. This collaboration with Laura I. Mosquera-Giraldo and Prof. Taylor, explores how chemically diverse substituents influence the effectiveness of novel cellulose polymers as crystallization inhibitors. Molecular dynamics and quantum chemical calculations were used to inquire how chemical diversity modifies the polymer conformation and dynamics. These results help to explain why two polymers with similar chemical groups may show opposite effectiveness due to strong intramolecular non-covalent interactions. <a href="http://dx.doi.org/10.1021/acs.biomac.6b01156"/>These findings have been recently reported in the journal Biomacromolecules</a>.
+			The bioavailability of a high percentage of new drug candidates is limited by their poor solubility. The use of the amorphous form of the drug is a good strategy to improve their solubility. However, the amorphous state is unstable, and the drug will crystallize over time, losing its solubility advantage. Polymers are used to stabilize amorphous formulations, and to maintain high supersaturations following dissolution of the formulation. While experimental studies with commercial polymers show differences in polymer effectiveness, the molecular mechanism of stabilization is still unclear, making the rational design of novel polymers challenging. This collaboration with Dr. Mosquera-Giraldo and Prof. Taylor, explores how chemically diverse substituents influence the effectiveness of novel cellulose polymers as crystallization inhibitors. Molecular dynamics and quantum chemical calculations were used to inquire how chemical diversity modifies the polymer conformation and dynamics. These results help to explain why two polymers with similar chemical groups may show opposite effectiveness due to strong intramolecular non-covalent interactions. <a href="http://dx.doi.org/10.1021/acs.biomac.6b01156"/>These findings have been recently reported in the journal Biomacromolecules</a>.
 		</p>
 		<center><h3 class="research">Comparison of the Crystallization Inhibition Properties of Bile Salts</h3></center>
 		<p class="research" align="justify">
 			Bile salts are natural surfactants present in the human gastrointestinal tract. Therefore, it is essential to consider their effect on the dissolution and crystallization tendency of oral drug formulations. Although recently it has been shown that that sodium taurocholate, a common bile salt, can delay nucleation of certain compounds, there is limited information about the crystallization inhibition properties of other bile salts. In this project molecular dynamics simulations were used to assist the evaluation of the ability of several other bile salts to maintain supersaturated aqueous solutions of three drug compounds: celecoxib, nevirapine and fibanserin. Experimentally, most bile salts delayed nucleation. However, their inhibitory effects varied depending on the structure and concentration of the bile salt and the drug. Molecular dynamics simulations indicated that van der Waals and hydrogen bonding interactions occurred between the drug and bile salts, with variations in different systems. These results are important to better understand the crystallization tendency of orally delivered poorly water-soluble compounds in vivo. <a href=" http://dx.doi.org/10.1021/acs.cgd.6b01470 "/>These findings have been recently reported in the journal Crystal Growth & Design</a>.
 		</p>
-
+		<center><h3 class="research">Phase Behavior of Drug-Polyer Amorphous Solid Dispersions Produced from Binary and Ternary Solvents</h3></center>
+		<p class="research" align="justify">
+			The majority of studies evaluating amorphous solid dispersions (ASDs) utilize solvent evaporation techniques as the preparation method. However, the impact of the solvent/co-solvent system properties on the polymer conformation and the phase behavior of the resultant drug-polymer blends is poorly understood. This is an investigation of the influence of solvent properties on the phase behavior of ASDs containing itraconazole (ITZ) and hydroxypropylmethyl cellulose (HPMC) prepared using spin coating from binary/ternary co-solvent systems containing alkyl alcohols, dichloromethane (DCM), and water. The compatibility of the polymer with the co-solvent system was probed using high resolution imaging techniques supported by molecular dynamics simulations. Short chain alcohols, methanol and ethanol, were found to induce drug-polymer de-mixing in the presence of water. In contrast, water-induced mixing was observed when bigger alcohols, n-propanol and n-butanol, were used as a co-solvent. Isopropanol produced phase separated ASDs under wet and dry conditions. This solvent-triggered phase behavior shows the importance of conducting a thorough screening of various solvents prior to the preparation of ASDs. This study highlights the complex interplay of component properties and formation conditions on the resultant ASD microstructure and ultimately, these observations may help in the rational design of ASDs produced via solvent evaporation. <!-- <a href=""/>These findings have been recently reported in the journal Molecular Pharmaceutics</a>. -->
+		</p>
 	</body>
+
 	<center><h2 class="research"><a name="DFT">Density Functional Theory</a></h2></center>	
 
 	<div class="research-images">
@@ -96,8 +148,9 @@
 			In this collaboration with Dr. Mosquera, Prof. Ratner, and Prof. Schatz, we examine the generalized Kohn-Sham (GKS) theory of hybrid functionals, an extension of the Kohn-Sham theory for electronic ground states that leads to a variety of alternative density functionals intimately related with the local density approximation (LDA). We discuss why the inclusion of Hartree-Fock exchange, and its long-range-corrected form, dominate over the generalized gradient corrections in the improvement of the quality of the fundamental gap and the enhancement excitation-energy estimations. As an illustration of the wide range of possibilities created by our work, we report CAM-LDA0: a three-parameter functional, with 1/4 global and 1/2 long-range Hartree-Fock interaction, respectively; a range separation factor of 1/3; and pure LDA exchange and correlation. CAM-LDA0 works for electronic excitations as well as the CAM-B3LYP functional, with the advantage of reduced computational cost due to the omission of the intricate generalized gradient corrections. <a href="http://dx.doi.org/10.1021/acs.jpca.5b10864"/>These findings have been recently reported in The Journal of Physical Chemistry A</a>.
 		</p>
 	</body>
+	
 	<center><h2 class="research"><a name="Ab-Initio">Electronic Structure and Dynamics</a></h2></center>
-
+	
 	<div class="research-images">
 		<center>
 			<img style="border: 1px solid; width: auto; height: 270px; padding: 9px 4px 1px 4px;"

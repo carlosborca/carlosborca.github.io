@@ -42,20 +42,20 @@
 	<div class="resources" align="justify">
 		<h2>Contenido</h2>
 		<ol><li><a href="libpfe.html#What"/>&iquest;Qu&eacute; es LibEFP?</a></li>
-			<li><a href="libpfe.html#LibEFP">P&aacute;gina Web de LibEFP</a></li>
-			<li><a href="libpfe.html#How">&iquest;C&oacute;mo compilar LibEFP 1.4.2?</a>
-			<ol><li><a href="libpfe.html#Ubuntu">En Ubuntu 16.04 LTS</a>
+			<li><a href="libpfe.html#LibEFP">P&aacute;gina web de LibEFP</a></li>
+			<li><a href="libpfe.html#How">&iquest;C&oacute;mo compilar LibEFP 1.5.0?</a>
+			<ol><li><a href="libpfe.html#Ubuntu">En Ubuntu 18.04 LTS</a>
 				<ol><li><a href="libpfe.html#Ubuntu-Preparing">Preparaci&oacute;n del sitema operativo</a></li>
-					<li><a href="libpfe.html#Ubuntu-Installing">Instalaci&oacute;n de las bibliotecas b&aacute;sicas requeridas</a></li>
+					<li><a href="libpfe.html#Ubuntu-Installing">Instalaci&oacute;n de las bibliotecas y programas b&aacute;sicos requeridas</a></li>
 					<li><a href="libpfe.html#Ubuntu-Cleaning">Lipieza de bibliotecas en desuso</a></li>
-					<li><a href="libpfe.html#Ubuntu-Cloning">Clonar el repositorio de GIT</a></li>
+					<li><a href="libpfe.html#Ubuntu-Cloning">Clonar el repositorio de GitHub</a></li>
 					<li><a href="libpfe.html#Ubuntu-Contents">Contenido del archivo <em class="code">config.inc</em></li>
 					<li><a href="libpfe.html#Ubuntu-Compilation">Compilaci&oacute;n</a></li>
 					<li><a href="libpfe.html#Ubuntu-Paths">Creaci&oacute;n de rutas del sistema para LibEFP</a></li>
 				</ol>
 				</li>
 				<li><a href="libpfe.html#RCAC">En los Cl&uacute;steres del Centro Rosen para C&oacute;mputo Avanzado de la Universidad Purdue</a>
-				<ol><li><a href="libpfe.html#RCAC-Cloning">Clonar el repositorio de GIT</a></li>
+				<ol><li><a href="libpfe.html#RCAC-Cloning">Clonar el repositorio de GitHub</a></li>
 					<li><a href="libpfe.html#RCAC-Contents">Contenido del archivo <em class="code">config.inc</em></a></li>
 					<li><a href="libpfe.html#RCAC-Loading">Cargar los m&oacute;dulos requeridos (Versi&oacute;n de Desarrolladores en Carter del RCAC)</a></li>
 					<li><a href="libpfe.html#RCAC-Compilation">Compilaci&oacute;n</a></li>
@@ -74,58 +74,71 @@
 		<p>
 			LibEFP es una implementaci&oacute;n completa del m&eacute;todo de potencial de fragmento efectivo (EFP) (EFP puede ser visto como un campo de fuerza avanzado, basado en primeros principios, ver <a href="http://dx.doi.org/10.1002/jcc.23375"/>Kaliman et al., JCC, 2013</a>). LibEFP facilita la extensi&oacute;n de m&eacute;todos de estructura electr&oacute;nica dise&ntilde;ados para simulaciones precisas en la fase gaseosa a fases condensadas, a trav&eacute;s QM/EFP. LibEFP est&aacute; dise&ntilde;ado para dar a los desarrolladores de programas de qu&iacute;mica cu&aacute;ntica una forma f&aacute;cil de a&ntilde;adir EFP a su paquete favorito.
 		</p>
-		<h2><a name="LibEFP">P&aacute;gina Web de LibEFP</a></h2>
+		<h2><a name="LibEFP">P&aacute;gina web de LibEFP</a></h2>
 		<p>
 			Para encontrar informaci&oacute;n m&aacute;s detallada acerca de LibEFP, vaya a: <a href="http://www.libefp.org/"/>libefp - The Effective Fragment Potential</a>
 		</p>
-		<h2><a name="How">&iquest;C&oacute;mo compilar LibEFP 1.4.2?</a></h2>
+		<h2><a name="How">&iquest;C&oacute;mo compilar LibEFP 1.5.0?</a></h2>
 		<h3><a name="Ubuntu">En Ubuntu 16.04 LTS</a></h3>
 		<p>
-			Este es un m&eacute;todo eficaz para compilar LibEFP en <a href="http://www.ubuntu.com/desktop"/>Ubuntu Desktop 16.04 LTS</a>. Fue probada por &uacute;ltima vez el 23 de mayo de 2017:
+			Este es un m&eacute;todo eficaz para compilar LibEFP en <a href="http://www.ubuntu.com/desktop"/>Ubuntu Desktop 18.04 LTS</a>. Estas instrucciones asumen que se empieza con una instalaci&oacute;n limpia de Ubuntu Desktop 18.04 LTS. En consecuencia, algunos de los pasos descritos aqu&iacute;, como la instalaci&oacute;n de bibliotecas, puede que no sean un requisito para su sistema. Este procedimiento fue probado por &uacute;ltima vez el 1 de junio de 2018:
 		</p>
 		<h4><a name="Ubuntu-Preparing">Preparaci&oacute;n del sitema operativo</a></h4>
 		<p>
 			Aseg&uacute;rese de que su sistema est&aacute; al d&iacute;a.
 		</p>
 		<div class="code">
-			sudo apt-get update<br>
-			sudo apt-get upgrade<br>
-			sudo apt-get dist-upgrade<br>
+			sudo apt update<br>
+			sudo apt upgrade<br>
+			sudo apt dist-upgrade<br>
 		</div>
-		<h4><a name="Ubuntu-Installing">Instalaci&oacute;n de las bibliotecas b&aacute;sicas requeridas</a></h4>
+		<h4><a name="Ubuntu-Installing">Instalaci&oacute;n de las bibliotecas y programas b&aacute;sicos requeridas</a></h4>
 		<p>
 			Instale los compiladores.
 		</p>
 		<div class="code">
-			sudo apt-get install build-essential<br>
-			sudo apt-get install gfortran<br>
+			sudo apt install build-essential<br>
+			sudo apt install gfortran<br>
 		</div>
 		<p>
 			Instale las bibliotecas de matem&aacute;ticas
 		</p>
 		<div class="code">
-			sudo apt-get install libatlas-dev<br>
-			sudo apt-get install libblas-dev<br>
-			sudo apt-get install liblapack-dev<br>
+			sudo apt install libatlas-base-dev<br>
+			sudo apt install libblas-dev<br>
+			sudo apt install liblapack-dev<br>
+		</div>
+		<p>
+			Instale MPI.
+		</p>
+		<div class="code">
+			sudo apt install mpich<br>
+			sudo apt install mpich-doc<br>
+		</div>
+		<p>
+			Instale Git.
+		</p>
+		<div class="code">
+			sudo apt install git<br>
 		</div>
 		<h4><a name="Ubuntu-Cleaning">Lipieza de bibliotecas en desuso</a></h4>
 		<p>
 			Limpie el sistema.
 		</p>
 		<div class="code">
-			sudo apt-get autoremove<br>
-			sudo apt-get autoclean<br>
-			sudo apt-get clean<br>
+			sudo apt autoremove<br>
+			sudo apt autoclean<br>
+			sudo apt clean<br>
 		</div>
-		<h4><a name="Ubuntu-Cloning">Clonar el repositorio de GIT</a></h4>
+		<h4><a name="Ubuntu-Cloning">Clonar el repositorio de GitHub</a></h4>
 		<p>
-			En primer lugar, vaya al directorio donde desear descargar el c&oacute;digo fuente de LibEFP. Por ejemplo su directorio principal:
+			En primer lugar, vaya al directorio donde desear descargar el c&oacute;digo fuente de LibEFP. Por ejemplo:
 		</p>
 		<div class="code">
-			cd ~/
+			cd ~/Gits/
 			</div>
 		<p>
-			Para compilar LibEFP 1.4.2, hay que obtener los archivos de instalaci&oacute;n. Esto se puede hacer usando GIT Hub.
+			Para compilar LibEFP 1.5.0, hay que obtener los archivos de instalaci&oacute;n. Esto se puede hacer usando Git.
 		</p>
 		<div class="code">
 			git clone <a href="https://github.com/libefp/libefp"/>git://github.com/libefp/libefp.git</a>
@@ -134,23 +147,23 @@
 			Esto crear&aacute; un directorio llamado <em class="code">libefp</em> en el directorio de trabajo actual. Es posible que desee cambiar el nombre del nuevo directorio para incluir la versi&oacute;n y otros detalles de la compilaci&oacute;n que est&aacute; a punto de ejecutar:
 		</p>
 		<div class="code">
-			mv libefp libefp-1.4.2-beta-2017.05.23
+			mv libefp libefp-1.5.0-2018.06.01
 		</div>
 		</p>
 			Para explorar el contenido del c&oacute;digo, vaya al directorio que acaba de renombrar.
 		</p>
 		<div class="code">
-			cd ~/libefp-1.4.2-beta-2017.05.23/
+			cd ~/Gits/libefp-1.5.0-2018.06.01/
 		</div>
 		<h4><a name="Ubuntu-Contents">Contenido del archivo <em class="code">config.inc</em></a></h4>
 		<p>
-			Tambi&eacute;n se necesita un archivo de configuraci&oacute;n. Este archivo <em class="code">config.inc</em> contiene todas las instrucciones para que el sistema reconozca los compiladores, directorio de instalaci&oacute;n, y otras opciones.
+			Tambi&eacute;n se necesita un archivo de configuraci&oacute;n. Este archivo <em class="code">config.inc</em> contiene un conjunto de instrucciones para que el sistema reconozca los compiladores, directorio de instalaci&oacute;n, y otras opciones.
 		</p>
 		<p>
-			Varios borradores de &eacute;ste se encuentran almacenados en el directorio <em class="code">config/</em>.
+			Varios ejemplos de este archivo se encuentran almacenados en el directorio <em class="code">config/</em>.
 		</p>
 		<p>
-			A continuaci&oacute;n se da un ejemplo de dicho archivo, basado en el borrador <em class="code">gcc-netlib-openmpi.inc</em>:
+			A continuaci&oacute;n se da un ejemplo de dicho archivo, basado en el ejemplo <em class="code">gcc-netlib-openmpi.inc</em>:
 		</p>
 		<div class="code">
 			# C compiler<br>
@@ -172,35 +185,20 @@
 			MYLDFLAGS=<br>
 			<br>
 			# additional C flags<br>
-			MYCFLAGS= -DWITH_MPI -std=c99 -O3 -g -fopenmp<br>
+			MYCFLAGS= -DEFP_USE_MPI -std=c99 -O3 -g -fopenmp<br>
 			<br>
 			# additional Fortran flags<br>
 			MYFFLAGS= -g<br>
-			<br>
-			# ar command<br>
-			AR= ar rc<br>
-			<br>
-			# ranlib command<br>
-			RANLIB= ranlib<br>
-			<br>
-			# rm command<br>
-			RM= rm -f<br>
-			<br>
-			# tags program<br>
-			CTAGS= ctags<br>
-			<br>
-			# tags file<br>
-			TAGS= tags<br>
 		</div>
 		<h4><a name="Ubuntu-Compilation">Compilaci&oacute;n</a></h4>
 		<p>
-			Compilar debe ser sencillo ahora. En primer lugar, ejecute el comando <em class="code">make</em>. Esto verificar&aacute; que todo est&eacute; en orden para la compilaci&oacute;n de todo el paquete (si s&oacute;lo necesita la biblioteca puede ejecutar <em class="code">make libefp</em>.).
+			Compilar debe ser sencillo ahora. En primer lugar, ejecute el comando <em class="code">make</em>. Esto verificar&aacute; que todo est&eacute; en orden para la compilaci&oacute;n de todo el paquete (si s&oacute;lo necesita la biblioteca, no el motor de Din&aacute;mica Molecular <em class="code">EFPMD</em>, puede ejecutar <em class="code">make libefp</em>).
 		</p>
 		<div class="code">
 			make
 		</div>
 		<p>
-			Si <em class="code">make</em> se ejecut&oacute; sin errores, ahora debe comprobar que el programa funciona correctamente. Esto se hace mediante la ejecuci&oacute;n de una serie de c&aacute;lculos precargados que se corren a trav&eacute;s de un <em>script</em>, el cual se llama usando los comandos <em class="code">make check</em>. Al menos debe ejecutar el primero de ellos:
+			Si <em class="code">make</em> se llev&oacute; a cabo sin errores, ahora debe comprobar que el c&oacute;digo compilado funciona correctamente. Esto se hace mediante la ejecuci&oacute;n de una serie de c&aacute;lculos de prueba precargados que se corren a trav&eacute;s de un <em>script</em>, el cual se llama usando los comandos <em class="code">make check</em>. Al menos debe ejecutar el primero de ellos:
 		</p>
 		<div class="code">
 			make check
@@ -209,29 +207,29 @@
 			Para probar c&oacute;digo paralelo OpenMP (paralelizaci&oacute;n entre los n&uacute;cleos):
 		</p>
 		<div class="code">
-			make check-omp
+			make checkomp
 		</div>
 		<p>
 			Para probar c&oacute;digo paralelo MPI (paralelizaci&oacute;n entre nodos):
 		</p>
 		<div class="code">
-			make check-mpi
+			make checkmpi
 		</div>
 		<p>
-			Por &uacute;ltimo, para compilar todo el programa, ejecute el comando <em class="code">make install</em>.
+			Por &uacute;ltimo, para instalar el c&oacute;digo compilado, ejecute el comando <em class="code">make install</em>.
 		</p>
 		<div class="code">
 			make install
 		</div>
 		<h4><a name="Ubuntu-Paths">Creaci&oacute;n de rutas del sistema para LibEFP</a></h4>
 		<p>
-			Si no instal&oacute; en el directorio por defecto, cree rutas de sistema para los binarios de LibEFP en su <em class="code">.profile</em>.
+			Si no realiz&oacute; la instalaci&oacute;n en el directorio por defecto, cree rutas de sistema para los binarios de LibEFP en su <em class="code">.bashrc</em>.
 		</p>
 		<div class="code">
 			export PATH="/home/carlosborca/libefp/bin:$PATH"
 		</div>
 		<h3><a name="RCAC">En los Cl&uacute;steres del Centro Rosen para C&oacute;mputo Avanzado de la Universidad Purdue</a></h3>
-		<h4><a name="RCAC-Cloning">Clonar el repositorio de GIT</a></h4>
+		<h4><a name="RCAC-Cloning">Clonar el repositorio de GitHub</a></h4>
 		<p>
 			En primer lugar, vaya al directorio LibEFP dentro del directorio Aplicaciones del Grupo Slipchenko:
 		</p>
@@ -239,7 +237,7 @@
 			cd /group/lslipche/apps/libefp/
 			</div>
 		<p>
-			Para compilar LibEFP 1.4.2, hay que obtener los archivos de instalaci&oacute;n. Esto se puede hacer usando GIT Hub.
+			Para compilar LibEFP 1.4.2, hay que obtener los archivos de instalaci&oacute;n. Esto se puede hacer usando Git.
 		</p>
 		<div class="code">
 			git clone <a href="https://github.com/libefp/libefp"/>git://github.com/libefp/libefp.git</a>
