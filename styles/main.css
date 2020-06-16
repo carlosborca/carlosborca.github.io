@@ -227,6 +227,15 @@ div.publications  {
 	margin-right: auto;
 }
 
+ol.publications  { 
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+/* li {
+    flex: 0 0 auto;
+}
+
 /* Outreach page. */
 
 div.outreach  {
