@@ -21,10 +21,10 @@ footer {
 	background: #E1C68B;
 	margin-top: 10px;
 	padding: 10px 0px;
-    width: 100%;
-    height: auto;
+	width: 100%;
+	height: auto;
 	position: relative;
-    bottom: 0px;
+	bottom: 0px;
 }
 
 h1 {
@@ -206,6 +206,25 @@ h3.research {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+summary.research {
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
+	max-width: 864px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid floralwhite;
+	background: none;
+}
+
+summary.research:hover {
+	color: #B18904;
+	background: floralwhite;
+	border: 1px solid goldenrod;
+	text-decoration: none;
+}
+
 
 /* People page. */
 
